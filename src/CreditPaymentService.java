@@ -1,5 +1,5 @@
 public class CreditPaymentService {
-        public int calculate (double term, double credit) {
+        public int calculate (int term, int credit) {
             double rate = 9.9/100/12;
             double a = (1+rate);
             double b = term*12;
