@@ -1,12 +1,15 @@
-public class CreditPaymentService {
-        public int calculate (int term, int credit) {
-            double rate = 9.9/100/12;
-            double a = (1+rate);
-            double b = term*12;
-            double c = Math.pow(a,b);
-            double d = 1-1/c;
-            double payment = credit*rate /d;
-            return (int) payment;
-        }
-    }
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 
+public class CreditPaymentService {
+    public BigDecimal calculate (int term, int credit) {
+                BigDecimal rate = new BigDecimal(9.9/100/12);
+                BigDecimal a = new BigDecimal(1).add(rate);
+                int b = term*12;
+                BigDecimal c = a.pow(b);
+                BigDecimal e = new BigDecimal(1).divide(c,10000,RoundingMode.UP);
+                BigDecimal d = new BigDecimal(1).subtract(e);
+                BigDecimal payment = new BigDecimal(credit).multiply(rate).divide(d,0,RoundingMode.UP);
+                return payment;
+            }
+        }
