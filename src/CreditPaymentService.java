@@ -3,7 +3,7 @@ import java.math.RoundingMode;
 
 public class CreditPaymentService {
     public BigDecimal calculate (int term, int credit) {
-                BigDecimal rate = new BigDecimal(9.9/100/12);
+                BigDecimal rate = new BigDecimal(9.99/100/12);
                 BigDecimal a = new BigDecimal(1).add(rate);
                 int b = term*12;
                 BigDecimal c = a.pow(b);
